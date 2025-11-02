@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Turbo Lite — Old Photo Corrector</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Turbo Lite — Old Photo Corrector</h1>
+    <p class="sub">Single‑pass GPU shader • 1080px cap • super fast • runs entirely in your browser</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="uploader">
+        <input id="fileInput" type="file" accept="image/*" />
+      </div>
+
+      <div class="controls">
+        <div class="row">
+          <button id="autoBtn">Auto Fix</button>
+
+          <label>Strength
+            <input id="strength" type="range" min="0" max="100" value="65" />
+          </label>
+
+          <label>Scratch
+            <input id="scratch" type="range" min="0" max="100" value="35" />
+          </label>
+
+          <label>Smooth
+            <input id="smooth" type="range" min="0" max="100" value="25" />
+          </label>
+
+          <label>Detail
+            <input id="detail" type="range" min="0" max="100" value="30" />
+          </label>
+
+          <label>Contrast
+            <input id="contrast" type="range" min="0" max="100" value="20" />
+          </label>
+
+          <label>Saturation
+            <input id="sat" type="range" min="0" max="100" value="16" />
+          </label>
+
+          <label>Warmth
+            <input id="warm" type="range" min="-50" max="50" value="6" />
+          </label>
+
+          <button id="downloadBtn" disabled>Download</button>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="panel2">
+          <h3>Original</h3>
+          <canvas id="cin"></canvas>
+        </div>
+        <div class="panel2">
+          <h3>Enhanced (Lite)</h3>
+          <canvas id="cout"></canvas>
+        </div>
+      </div>
+
+      <p id="status" class="status">Load a photo to begin…</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Shader pipeline (single pass): tone/contrast → scratch attenuate → edge‑aware smooth → unsharp → color restore.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
